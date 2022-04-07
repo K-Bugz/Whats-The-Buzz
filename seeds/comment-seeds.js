@@ -15,12 +15,12 @@ const commentdata = [
     {
         comment_text: 'Aliquam erat volutpat. In congue.',
         user_id: 3,
-        post_id: 10
+        post_id: 1
     },
     {
         comment_text: 'Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.',
         user_id: 3,
-        post_id: 18
+        post_id: 1
     }
 ];
 
