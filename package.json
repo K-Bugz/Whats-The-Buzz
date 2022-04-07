@@ -1,0 +1,35 @@
+{
+  "name": "whats-the-buzz",
+  "version": "1.0.0",
+  "description": "An app to share the latest",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/K-Bugz/Whats-The-Buzz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/K-Bugz/Whats-The-Buzz/issues"
+  },
+  "homepage": "https://github.com/K-Bugz/Whats-The-Buzz#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.17.0"
+  },
+  "engines": {
+    "node": "16.14.0"
+  }
+}
