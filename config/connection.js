@@ -1,3 +1,4 @@
+const Sequelize = require('sequelize');
 require('dotenv').config(); // import of dotenv
 
 // create connection to our db
