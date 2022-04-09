@@ -20,6 +20,11 @@ const postdata = [
         title: 'Are pugs cute or ugly?',
         post_url: '/public/images/pug.jpg',
         user_id: 2
+    },
+    {
+        title: 'What was your first memory?',
+        post_url: 'moo.com',
+        user_id: 1
     }
 ];
 

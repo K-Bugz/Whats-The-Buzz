@@ -19,8 +19,13 @@ const commentdata = [
     },
     {
         comment_text: 'Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.',
-        user_id: 3,
+        user_id: 2,
         post_id: 1
+    },
+    {
+        comment_text: 'DOGGIE FOOG.',
+        user_id: 1,
+        post_id: 5
     }
 ];
 
