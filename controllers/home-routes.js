@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection'); // using sequlize which is ORM. This brings in the data.  
 const { Post, User, Comment, Vote } = require('../models'); // schema for the data and tables
+const withAuth = require('../utils/auth');
+
 
 // get all posts for homepage
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     console.log('======================');
     Post.findAll({ // sequelize syntax. Pulls in post from models
         attributes: [
@@ -30,8 +32,7 @@ router.get('/', (req, res) => {
     })
         .then(dbPostData => {
             const posts = dbPostData.map(post => post.get({ plain: true }));
-
-            res.render('homepage', { posts });
+            res.render('homepage', { posts, loggedIn: true });
         })
         .catch(err => {
             console.log(err);
@@ -40,7 +41,7 @@ router.get('/', (req, res) => {
 });
 
 
-// get single post
+// get single post and comments 
 router.get('/post/:id', (req, res) => {
     Post.findOne({
         where: {
@@ -51,7 +52,9 @@ router.get('/post/:id', (req, res) => {
             'post_url',
             'title',
             'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count'],
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id and vote = 1)'), 'upvote_count'],
+            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id and vote = 0)'), 'downvote_count']
         ],
         include: [
             {
@@ -86,6 +89,7 @@ router.get('/post/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
+
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {

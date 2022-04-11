@@ -142,17 +142,26 @@ main {
     transition: background-color .1s;
 }
 
+.downvote-btn {
+    background-color: #7d0f0f;
+    transition: background-color .1s;
+}
+
 .upvote-btn:hover {
     background-color: #1f9c13;
 }
 
+.downvote-btn:hover {
+    background-color: #a31515;
+}
+
 .comment-form {
-    margin-bottom: 5%;
+    margin: 5%;
 }
 
 .comment {
     padding: 1%;
-    margin-bottom: 1%;
+    margin: 5%;
 }
 
 .comment:nth-child(odd) {

@@ -1,0 +1,15 @@
+<article class="post">
+    <div class="title">
+        <a href="{{post_url}}" target="_blank">{{title}}</a>
+        <span>({{format_url post_url}})</span>
+    </div>
+    <div class="meta">
+        {{upvote_count}} {{format_plural "upvote" upvote_count}} and {{downvote_count}} {{format_plural "downvote"
+        downvote_count}} created by {{user.username}} on {{format_date created_at}}
+        {{!-- Below is the original one that only showed up votes. I want up and down votes!!! --}}
+        {{!-- {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
+        --}}
+        |
+        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    </div>
+</article>

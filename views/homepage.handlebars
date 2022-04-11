@@ -1,4 +1,4 @@
-<ol class="post-list">
+{{!-- <ol class="post-list">
   {{#each posts as |post|}}
   <li>
     <article class="post">
@@ -13,6 +13,14 @@
         <a href="/post/{{post.id}}">{{post.comments.length}} comment(s)</a>
       </div>
     </article>
+  </li>
+  {{/each}}
+</ol> --}}
+
+<ol class="post-list">
+  {{#each posts as |post|}}
+  <li>
+    {{> post-info post }}
   </li>
   {{/each}}
 </ol>

@@ -25,7 +25,12 @@ Vote.init(
                 model: 'post',
                 key: 'id'
             }
-        }
+        },
+        // Helped by Jon Taylor to put in up and down vote
+        vote: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        },
     },
     {
         sequelize,

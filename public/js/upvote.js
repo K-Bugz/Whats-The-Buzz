@@ -1,5 +1,9 @@
+// Function
 async function upvoteClickHandler(event) {
   event.preventDefault();
+
+  // Why did this print 4 show Diem Am I a weeb
+  console.log(window.location.toString().split('/').length - 1);
 
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
@@ -7,7 +11,8 @@ async function upvoteClickHandler(event) {
   const response = await fetch('/api/posts/upvote', {
     method: 'PUT',
     body: JSON.stringify({
-      post_id: id
+      post_id: id,
+      vote: true // In downvote it will be false!!!
     }),
     headers: {
       'Content-Type': 'application/json'
@@ -21,4 +26,5 @@ async function upvoteClickHandler(event) {
   }
 }
 
+// Calls function
 document.querySelector('.upvote-btn').addEventListener('click', upvoteClickHandler);

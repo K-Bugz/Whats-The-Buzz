@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "seeds": "node seeds/index.js",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "express-session": "^1.17.2",
     "handlebars": "^4.7.7",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15",
     "sequelize": "^6.17.0"
   },
   "engines": {

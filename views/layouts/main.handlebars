@@ -6,16 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Whats-The-Buzz</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="/style/style.css">
 </head>
 
 <body>
   <!-- Image and text -->
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <img src="/images/Whats-the-BuzzLogo.png" width="95" height="90" id="logo" alt="Whats-The-Buzz Logo">
       Whats-The-Buzz
     </a>
+    {{!-- Basically if logged in show these two buttons else login --}}
+    {{#if loggedIn}}
+    <a href="/dashboard">Create Post</a>
+    <button id="logout" class="btn-no-style">logout</button>
+    {{else}}
+    <a href="/login">login</a>
+    {{/if}}
   </nav>
 
   <div>
@@ -25,10 +32,13 @@
 
 
     <footer>
-      Thanks for visiting!
+      <img src="/images/footerGrass.png" id="footerImage" style="width: 100%" alt="Whats-The-Buzz Logo">
     </footer>
   </div>
 
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>

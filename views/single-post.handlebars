@@ -8,9 +8,12 @@
 
     <div>
         <button type="submit">add comment</button>
+        {{!-- add upvote icon --}}
         <button type="button" class="upvote-btn">upvote</button>
+        <button type="button" class="downvote-btn">down vote</button>
     </div>
 </form>
+<br>
 {{/if}}
 
 {{> comments post.comments}}
