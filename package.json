@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "seeds": "node seeds/index.js",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
