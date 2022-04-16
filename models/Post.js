@@ -16,11 +16,11 @@ class Post extends Model { // upvote is a method we created and used the word st
                     'post_url',
                     'title',
                     'created_at',
-                    // 
-                    [
-                        sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),
-                        'vote_count'
-                    ]
+                    // I am attempting to count the total number of trues via post id for upvotes
+                    // falses are downvotes
+                    [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id and vote = 1)'), 'upvote_count'],
+                    [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id and vote = 0)'), 'downvote_count'],
+                    [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
                 ]
             });
         });

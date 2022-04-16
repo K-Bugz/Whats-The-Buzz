@@ -45,13 +45,8 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        attributes: [
-            'id',
-            'post_url',
-            'title',
-            'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-        ],
+        attributes
+        ,
         include: [
             {
                 model: Comment,
@@ -106,6 +101,16 @@ router.put('/upvote', (req, res) => {
             res.status(500).json(err);
         });
 });
+router.put('/downvote', (req, res) => {
+    // custom static method created in models/Post.js
+    Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User }) // method is called upvote but modified to handle both
+        .then(updatedVoteData => res.json(updatedVoteData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 
 
 

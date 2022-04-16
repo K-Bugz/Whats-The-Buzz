@@ -27,7 +27,7 @@ Vote.init(
             }
         },
         // Helped by Jon Taylor to put in up and down vote
-        vote: {
+        vote: { // The idea is that true will be upvotes and down will be downvotes
             type: DataTypes.BOOLEAN,
             defaultValue: true
         },

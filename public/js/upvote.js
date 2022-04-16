@@ -2,9 +2,6 @@
 async function upvoteClickHandler(event) {
   event.preventDefault();
 
-  // Why did this print 4 show Diem Am I a weeb
-  console.log(window.location.toString().split('/').length - 1);
-
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];

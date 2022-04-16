@@ -4,16 +4,6 @@ const { Post, User, Comment, Vote } = require('../models');
 const withAuth = require('../utils/auth');
 
 
-const attributes = [
-    'id',
-    'post_url',
-    'title',
-    'created_at',
-    [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id and vote = 1)'), 'upvote_count'],
-    [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id and vote = 0)'), 'downvote_count'],
-    [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-];
-
 // get all posts for dashboard     notice the withAuth middleware it makes sure they are autheticated.  
 router.get('/', withAuth, (req, res) => {
     console.log(req.session);

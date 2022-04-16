@@ -18,7 +18,7 @@ const postdata = [
     },
     {
         title: 'Are pugs cute or ugly?',
-        post_url: '/public/images/pug.jpg',
+        post_url: './public/images/pug.jpg',
         user_id: 2
     },
     {
